@@ -51,6 +51,7 @@ There are number of R packages used for various operations on data sets that we 
 
   + caret
   + clue
+  + xgboost
 
 4. MultiCore
 
