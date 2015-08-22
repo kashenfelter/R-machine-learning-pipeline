@@ -75,7 +75,7 @@ DimensionalityReduction.voteForBestFeatures <- function(){
 
 #Chi squared
 DimensionalityReduction.chiSquared <- function(step2){
-  
+  options(java.parameters = "-Xmx24g")
   loginfo(paste0("start chiSquared feature selection"))
   
   formula = paste0(global.labelFeature,"~.")
@@ -102,6 +102,8 @@ DimensionalityReduction.variousFromFSelection <- function(step2){
   
   loginfo(paste0("cfs feature selection"))
   #cfs
+  
+  options(java.parameters = "-Xmx24g")
   subset <- cfs(formula, step2)
   #write.csv(subset,file=step3.cfs.file,row.names = F)
   write.xlsx2(data.frame("selectedFeatures"=subset),file=step3.featurSelection.overview, sheetName = "cfs",row.names = F,append = T)  
@@ -132,24 +134,24 @@ DimensionalityReduction.variousFromFSelection <- function(step2){
   #perc <- 10000 /total
   #inTraining <- createDataPartition(step2[[global.labelFeature]], p = perc, list = FALSE)
   #forest = randomForest(step2[inTraining,!(names(step2) %in% global.labelFeature)],step2[inTraining,(names(step2) %in% global.labelFeature)], ntree = 1000, keep.forest = FALSE, importance = TRUE)
-  
-  loginfo(paste0("starting randomForest feature selection. This could take a while..."))
-  forest = randomForest(step2[,!(names(step2) %in% global.labelFeature)],step2[,(names(step2) %in% global.labelFeature)], ntree = 1000, keep.forest = FALSE, importance = TRUE)
-  
-  res = as.data.frame(importance(forest, type = 1))
-  res$features <- rownames(res) 
-  colnames(res)[1] = "attr_importance"
-  sorted <- sqldf("select features,attr_importance from res order by attr_importance desc")
-  
-  write.xlsx2(sorted,file=step3.featurSelection.overview, sheetName = "RF_accuracy_decrease",row.names = F,append = T)  
-  
-  
-  res2 = as.data.frame(importance(forest, type = 2))
-  res2$features <- rownames(res2) 
-  colnames(res2)[1] = "attr_importance"
-  sorted2 <- sqldf("select features,attr_importance from res2 order by attr_importance desc")
-  write.xlsx2(sorted2,file=step3.featurSelection.overview, sheetName = "RF_nodeImpurity_decrease",row.names = F,append = T)  
-  
+#   
+#   loginfo(paste0("starting randomForest feature selection. This could take a while..."))
+#   forest = randomForest(step2[,!(names(step2) %in% global.labelFeature)],step2[,(names(step2) %in% global.labelFeature)], ntree = 1000, keep.forest = FALSE, importance = TRUE)
+#   
+#   res = as.data.frame(importance(forest, type = 1))
+#   res$features <- rownames(res) 
+#   colnames(res)[1] = "attr_importance"
+#   sorted <- sqldf("select features,attr_importance from res order by attr_importance desc")
+#   
+#   write.xlsx2(sorted,file=step3.featurSelection.overview, sheetName = "RF_accuracy_decrease",row.names = F,append = T)  
+#   
+#   
+#   res2 = as.data.frame(importance(forest, type = 2))
+#   res2$features <- rownames(res2) 
+#   colnames(res2)[1] = "attr_importance"
+#   sorted2 <- sqldf("select features,attr_importance from res2 order by attr_importance desc")
+#   write.xlsx2(sorted2,file=step3.featurSelection.overview, sheetName = "RF_nodeImpurity_decrease",row.names = F,append = T)  
+#   
 }
 
 
