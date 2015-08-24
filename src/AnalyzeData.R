@@ -3,6 +3,8 @@ library(bit64)
 library(caret)
 
 global.labelFeature <- "target"
+k=600
+step3.featurSelection.overview <- paste0("data_reduction_to",k,"_50k.xlsx")
 
 AnalyzeData.check <- function(){
   
@@ -18,14 +20,10 @@ AnalyzeData.check <- function(){
   
   ds <- as.data.frame(ds)
   
-  for(k in seq(400,2000,by = 150)){
-    
-    
-  step3.featurSelection.overview <- paste0("data_reduction_to",k,"_50k.xlsx")
   randomPart <- ds[ inTraining,(k-199):k]
+  ds$VAR_0212 <- NULL
   
   randomPart$target <- ds[ inTraining,c("target")]
-  
   
   
   #################analyze
@@ -35,7 +33,6 @@ AnalyzeData.check <- function(){
   
   DimensionalityReduction.variousFromFSelection(randomPart) #fails
   
-  }
   #res <- information.gain(target~., randomPart)
   
   #forest = randomForest(randomPart[,!(names(randomPart) %in% global.labelFeature)],randomPart[,(names(randomPart) %in% global.labelFeature)], ntree = 500, keep.forest = FALSE, importance = TRUE)
