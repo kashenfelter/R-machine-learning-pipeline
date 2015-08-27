@@ -3,7 +3,7 @@ library(bit64)
 library(caret)
 
 global.labelFeature <- "target"
-k=600
+k=2000
 step3.featurSelection.overview <- paste0("data_reduction_to",k,"_50k.xlsx")
 
 AnalyzeData.check <- function(){
@@ -16,6 +16,7 @@ AnalyzeData.check <- function(){
   
   total <- nrow(ds)
   perc <- 50000/total
+  set.seed(1)
   inTraining <- createDataPartition(ds[["target"]], p =perc, list = FALSE)
   
   ds <- as.data.frame(ds)
