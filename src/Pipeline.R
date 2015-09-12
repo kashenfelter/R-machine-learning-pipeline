@@ -19,13 +19,13 @@ Pipeline.start <- function(){
   #STEP 2
   step2Res <- ExploratoryAnalysis.run(step1Res)
   
-  #STEP 3 
-  #step3Res <- DimensionalityReduction.run(step2Res)
-  
-  #STEP4 
-  #PredictionModeling.run(step3Res)
-   
-  #FinalOutput.create()
+  # # #STEP 3 
+  step3Res <- DimensionalityReduction.run(step2Res)
+  # # 
+  # # #STEP4 
+  # # #PredictionModeling.run(step3Res)
+  # 
+  # # #FinalOutput.create()
   
   
   
