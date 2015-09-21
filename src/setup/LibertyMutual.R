@@ -17,9 +17,9 @@ LibertyMutual.pipeline <- function(){
   
   total <- nrow(train)
   
-  perc_5000 <- 5000/total
+  perc_4000 <- 4000/total
   set.seed(1)
-  inTraining <- createDataPartition(train$Hazard, p =perc_5000, list = FALSE)
+  inTraining <- createDataPartition(train$Hazard, p =perc_4000, list = FALSE)
   
   
   
