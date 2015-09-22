@@ -34,9 +34,9 @@ AnalyzeData.check <- function(){
   
   DimensionalityReduction.variousFromFSelection(randomPart) #fails
   
-  #res <- information.gain(target~., randomPart)
+  res <- information.gain(target~., randomPart)
   
-  #forest = randomForest(randomPart[,!(names(randomPart) %in% global.labelFeature)],randomPart[,(names(randomPart) %in% global.labelFeature)], ntree = 500, keep.forest = FALSE, importance = TRUE)
+  forest = randomForest(randomPart[,!(names(randomPart) %in% global.labelFeature)],randomPart[,(names(randomPart) %in% global.labelFeature)], ntree = 500, keep.forest = FALSE, importance = TRUE)
   
   
 }
