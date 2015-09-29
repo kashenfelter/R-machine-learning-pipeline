@@ -14,7 +14,7 @@ DimensionalityReduction.run <- function(step2=NA){
   
   if(!file.exists(step2.output.file)){
     logerror(paste0("missing file ",step2.output.file))
-    stop("missing step2 file!")
+    #stop("missing step2 file!")
   }
   
   if(is.na(step2)){
