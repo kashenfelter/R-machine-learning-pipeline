@@ -3,13 +3,13 @@ library(bit64)
 library(caret)
 
 global.labelFeature <- "target"
-k=2000
+k=3000
 step3.featurSelection.overview <- paste0("data_reduction_to",k,"_50k.xlsx")
 
 AnalyzeData.check <- function(){
   
   
-  options(java.parameters = "-Xmx32g")
+  #options(java.parameters = "-Xmx32g")
   
   ds <- fread(input = "/home/sensei/projects/kagglescripts/data/springleaf/train.csv")
   ds$target <- as.factor(ds$target)
