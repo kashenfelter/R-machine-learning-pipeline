@@ -30,13 +30,13 @@ AnalyzeData.check <- function(){
   #################analyze
   
   
-  DimensionalityReduction.chiSquared(randomPart)  #fails
-  
-  DimensionalityReduction.variousFromFSelection(randomPart) #fails
-  
-  res <- information.gain(target~., randomPart)
-  
-  forest = randomForest(randomPart[,!(names(randomPart) %in% global.labelFeature)],randomPart[,(names(randomPart) %in% global.labelFeature)], ntree = 500, keep.forest = FALSE, importance = TRUE)
-  
+  # DimensionalityReduction.chiSquared(randomPart)  #fails
+  # 
+  # DimensionalityReduction.variousFromFSelection(randomPart) #fails
+  # 
+  # res <- information.gain(target~., randomPart)
+  # 
+  # forest = randomForest(randomPart[,!(names(randomPart) %in% global.labelFeature)],randomPart[,(names(randomPart) %in% global.labelFeature)], ntree = 500, keep.forest = FALSE, importance = TRUE)
+  # 
   
 }
