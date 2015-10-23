@@ -17,13 +17,13 @@ DimensionalityReduction.run <- function(step2=NA){
     #stop("missing step2 file!")
   }
   
-  # if(is.na(step2)){
-  #   load(file=paste0(step2.output.file,".rda"))
-  #   step2<-tidyData
-  #   #step2 <- read.csv(file=step2.output.file,stringsAsFactors = T)
-  #   loginfo(paste0("loaded ",step2.output.file))
-  #   step2<-Setup.adjustDF(step2)
-  # }
+  if(is.na(step2)){
+    load(file=paste0(step2.output.file,".rda"))
+    step2<-tidyData
+    #step2 <- read.csv(file=step2.output.file,stringsAsFactors = T)
+    loginfo(paste0("loaded ",step2.output.file))
+    step2<-Setup.adjustDF(step2)
+  }
   
   #chi squared 
   DimensionalityReduction.chiSquared(step2)
