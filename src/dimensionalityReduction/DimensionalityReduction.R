@@ -6,7 +6,7 @@ library('caret')
 library('xlsx')
 
 
-#source('Configuration.R')
+#source('src/Configuration.R')
 
 DimensionalityReduction.run <- function(step2=NA){
   

@@ -9,7 +9,7 @@ library('parallel')
 library('doMC')
 library('data.table')
 
-source('Configuration.R')
+source('src/Configuration.R')
 
 
 
