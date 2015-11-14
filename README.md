@@ -3,7 +3,7 @@ output: pdf_document
 ---
 
 
-# Kaggle Competitions Scripts 
+# R Machine Learning Pipeline
 
 
 ## Set up system
