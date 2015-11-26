@@ -9,8 +9,6 @@ output: pdf_document
 ## Set up system
 
 
-
-
 ###Installing R
 
 I prefer Ubuntu 15.04. First add this line:
