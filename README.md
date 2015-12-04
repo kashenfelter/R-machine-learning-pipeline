@@ -11,9 +11,9 @@ output: pdf_document
 
 ###Installing R
 
-I prefer Ubuntu 15.04. First add this line:
+I prefer Ubuntu 15.10. First add this line:
 
-``` deb http://cran.rstudio.com/bin/linux/ubuntu vivid/ ```
+``` deb https://<my.favorite.cran.mirror>/bin/linux/ubuntu wily/ ```
 
 to the file **/etc/apt/sources.list**
 
