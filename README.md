@@ -5,6 +5,8 @@ output: pdf_document
 
 # R Machine Learning Pipeline
 
+Follows a data science process in R language.
+
 
 ## Set up system
 
